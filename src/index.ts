@@ -176,7 +176,9 @@ export class VuexPersistence<S> implements PersistOptions<S> {
               )
             }
           })
-          this.subscribed = true
+          this.subscribed = true;
+          (store as any)._vm.$root.$data['vuexPersistStateRestored'] = true;
+          (store as any)._vm.$root.$emit('vuexPersistStateRestored')
         })
       }
     } else {
