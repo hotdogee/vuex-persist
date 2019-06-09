@@ -168,7 +168,6 @@ export class VuexPersistence<S> implements PersistOptions<S> {
           } else {
             store.replaceState(merge(store.state, savedState || {}))
           }
-
           this.subscriber(store)((mutation: MutationPayload, state: S) => {
             if (this.filter(mutation)) {
               this._mutex.enqueue(
@@ -176,9 +175,7 @@ export class VuexPersistence<S> implements PersistOptions<S> {
               )
             }
           })
-          this.subscribed = true;
-          (store as any)._vm.$root.$data['vuexPersistStateRestored'] = true;
-          (store as any)._vm.$root.$emit('vuexPersistStateRestored')
+          this.subscribed = true
         })
       }
     } else {

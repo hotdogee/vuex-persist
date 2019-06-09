@@ -169,8 +169,6 @@
                           }
                       });
                       _this.subscribed = true;
-                      store._vm.$root.$data['vuexPersistStateRestored'] = true;
-                      store._vm.$root.$emit('vuexPersistStateRestored');
                   });
               };
           }
