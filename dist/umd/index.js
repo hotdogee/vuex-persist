@@ -153,7 +153,7 @@
                * @param {Store<S>} store
                */
               this.plugin = function (store) {
-                  (_this.restoreState(_this.key, _this.storage)).then(function (savedState) {
+                  store.restored = (_this.restoreState(_this.key, _this.storage)).then(function (savedState) {
                       /**
                        * If in strict mode, do only via mutation
                        */

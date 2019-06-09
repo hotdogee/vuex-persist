@@ -159,7 +159,7 @@ export class VuexPersistence<S> implements PersistOptions<S> {
        * @param {Store<S>} store
        */
       this.plugin = (store: Store<S>) => {
-        ((this.restoreState(this.key, this.storage)) as Promise<S>).then((savedState) => {
+        (store as any).restored = ((this.restoreState(this.key, this.storage)) as Promise<S>).then((savedState) => {
           /**
            * If in strict mode, do only via mutation
            */

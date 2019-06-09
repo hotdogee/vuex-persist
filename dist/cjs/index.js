@@ -164,7 +164,7 @@ class VuexPersistence {
              * @param {Store<S>} store
              */
             this.plugin = (store) => {
-                (this.restoreState(this.key, this.storage)).then((savedState) => {
+                store.restored = (this.restoreState(this.key, this.storage)).then((savedState) => {
                     /**
                      * If in strict mode, do only via mutation
                      */
